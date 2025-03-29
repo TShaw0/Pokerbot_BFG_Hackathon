@@ -25,6 +25,7 @@ class Player(Bot):
         Returns:
         Nothing.
         '''
+        
         pass
 
     def handle_new_round(self, game_state, round_state, active):
