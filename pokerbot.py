@@ -1,6 +1,3 @@
-'''
-Simple example pokerbot, written in Python.
-'''
 from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
 from skeleton.states import GameState, TerminalState, RoundState
 from skeleton.states import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
@@ -14,7 +11,6 @@ class Player(Bot):
     '''
     A pokerbot.
     '''
-
     def __init__(self):
         '''
         Called when a new game starts. Called exactly once.
@@ -25,7 +21,6 @@ class Player(Bot):
         Returns:
         Nothing.
         '''
-        
         pass
 
     def handle_new_round(self, game_state, round_state, active):
@@ -40,11 +35,11 @@ class Player(Bot):
         Returns:
         Nothing.
         '''
-        #my_bankroll = game_state.bankroll  # the total number of chips you've gained or lost from the beginning of the game to the start of this round
-        #game_clock = game_state.game_clock  # the total number of seconds your bot has left to play this game
-        #round_num = game_state.round_num  # the round number from 1 to NUM_ROUNDS
-        #my_cards = round_state.hands[active]  # your cards
-        #big_blind = bool(active)  # True if you are the big blind
+        my_bankroll = game_state.bankroll  # the total number of chips you've gained or lost from the beginning of the game to the start of this round
+        game_clock = game_state.game_clock  # the total number of seconds your bot has left to play this game
+        round_num = game_state.round_num  # the round number from 1 to NUM_ROUNDS
+        my_cards = round_state.hands[active]  # your cards
+        big_blind = bool(active)  # True if you are the big blind
         pass
 
     def handle_round_over(self, game_state, terminal_state, active):
@@ -59,11 +54,11 @@ class Player(Bot):
         Returns:
         Nothing.
         '''
-        #my_delta = terminal_state.deltas[active]  # your bankroll change from this round
+        my_delta = terminal_state.deltas[active]  # your bankroll change from this round
         previous_state = terminal_state.previous_state  # RoundState before payoffs
-        #street = previous_state.street  # 0, 3, 4, or 5 representing when this round ended
-        #my_cards = previous_state.hands[active]  # your cards
-        #opp_cards = previous_state.hands[1-active]  # opponent's cards or [] if not revealed
+        street = previous_state.street  # 0, 3, 4, or 5 representing when this round ended
+        my_cards = previous_state.hands[active]  # your cards
+        opp_cards = previous_state.hands[1-active]  # opponent's cards or [] if not revealed
         pass
 
     def get_action(self, game_state, round_state, active):
